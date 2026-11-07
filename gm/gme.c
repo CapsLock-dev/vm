@@ -1,5 +1,4 @@
 #include "gm.h"
-#include "opcodes.h"
 #include "sv.h"
 #include <stdio.h>
 #include <stdlib.h>
