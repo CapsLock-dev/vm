@@ -1,0 +1,58 @@
+{
+	"version": 10,
+	"cmakeMinimumRequired": {
+		"major": 3,
+		"minor": 25,
+		"patch": 0
+	},
+	"configurePresets": [
+		{
+			"name": "base",
+			"hidden": true,
+			"binaryDir": "${sourceDir}/build/${presetName}",
+			"cacheVariables": {
+				"CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wsign-conversion -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Woverloaded-virtual",
+				"CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+				"CMAKE_CXX_EXTENSIONS": "OFF"
+			},
+            "generator": "Ninja"
+		},
+		{
+			"name": "Debug",
+			"displayName": "Debug", 
+			"inherits": [
+				"base"
+			],
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug",
+                "BUILD_TESTING": true
+			}
+		},
+		{
+			"name": "Release",
+			"displayName": "Release",
+			"inherits": [
+				"base"
+			],
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		}
+	],
+    "buildPresets": [
+        { "name": "Debug", "configurePreset": "Debug" },
+        { "name": "Release", "configurePreset": "Release" }
+    ],
+    "testPresets": [ 
+        {
+            "name": "Debug",
+            "configurePreset": "Debug",
+            "output": {
+                "outputOnFailure": true
+            },
+            "execution": {
+                "noTestsAction": "error"
+            }
+        }
+    ]
+}
