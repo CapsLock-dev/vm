@@ -15,7 +15,7 @@ target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
 target_sources(${PROJECT_NAME} PRIVATE ${EXEC_SRCS})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE 
-    core 
+   core lexer
 )
 
 option(BUILD_TESTING "Build unit and integration tests" OFF)
