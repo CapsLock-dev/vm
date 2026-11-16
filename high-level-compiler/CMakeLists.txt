@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
 
-project(GigaCompiler)
+project(GenericCompiler)
 
 set(EXEC_SRCS	
 	src/main.cpp
