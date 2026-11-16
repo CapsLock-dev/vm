@@ -7,7 +7,7 @@ target_sources(lexer_test
 
 target_link_libraries(lexer_test
     PRIVATE
-        Catch2::Catch2WithMain
+        lexer Catch2::Catch2WithMain
 )
 
 catch_discover_tests(lexer_test)
