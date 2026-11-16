@@ -70,8 +70,8 @@ private:
 
 #define _CL_LOG_LEVEL_TEST(lvl, ...) \
     do { \
-        if (lvl >= cl::core::logger::Logger::get_instance().get_min_lvl()) { \
-            cl::core::logger::Logger::get_instance().log(lvl,std::format(__VA_ARGS__));\
+        if (lvl >= core::logger::Logger::get_instance().get_min_lvl()) { \
+            core::logger::Logger::get_instance().log(lvl,std::format(__VA_ARGS__));\
         }\
     } while(false)
 
