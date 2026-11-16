@@ -1,14 +1,13 @@
-add_executable(unit_figure)
+add_executable(lexer_test)
 
-target_sources(unit_figure
+target_sources(lexer_test
 	PRIVATE
-        figure_test.cpp
+        lexer_test.cpp
 )
 
-target_link_libraries(unit_figure
+target_link_libraries(lexer_test
     PRIVATE
-        geometry
         Catch2::Catch2WithMain
 )
 
-catch_discover_tests(unit_figure)
+catch_discover_tests(lexer_test)
