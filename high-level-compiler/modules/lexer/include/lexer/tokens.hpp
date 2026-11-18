@@ -18,6 +18,7 @@ enum class TokenType {
     INT_LITERAL,
 
     KEYWORD_INT,
+    KEYWORD_FN,
     KEYWORD_VOID,
     KEYWORD_RETURN,
 

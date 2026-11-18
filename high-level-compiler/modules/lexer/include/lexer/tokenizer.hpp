@@ -56,6 +56,7 @@ private:
         {"int", TokenType::KEYWORD_INT},
         {"void", TokenType::KEYWORD_VOID},
         {"return", TokenType::KEYWORD_RETURN},
+        {"fn", TokenType::KEYWORD_FN},
     };
 
 };
