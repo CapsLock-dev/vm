@@ -8,6 +8,7 @@ set(EXEC_SRCS
 
 add_subdirectory(modules/core)
 add_subdirectory(modules/lexer)
+add_subdirectory(modules/parser)
 
 add_executable(${PROJECT_NAME})
 

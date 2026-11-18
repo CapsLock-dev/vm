@@ -4,6 +4,7 @@
 #include <utility>
 
 int main(int argc, char** argv) {
+    (void)argc;
     core::logger::LogConfig cfg = {
         .min_level = core::logger::LogLevel::TRACE,
         .queue_size = 100,
