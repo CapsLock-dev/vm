@@ -1,5 +1,5 @@
 #pragma once
-#include <string_view>
+#include <string>
 #include <stdint.h>
 
 namespace lexer {
@@ -42,7 +42,7 @@ enum class TokenType {
 
 struct Token {
     TokenType type;
-    std::string_view value;
+    std::string value;
     SourceLocation source; // only used for error messages
 };
 

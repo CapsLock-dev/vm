@@ -4,11 +4,14 @@
 
 TEST_CASE("Tokenizer basic example", "[lexer]") {
     using namespace lexer;
-    std::string text = "fn int main() {\nreturn 0;\n}";
-    Tokenizer tokenizer{text};
-    auto res = tokenizer.tokenize();
-    REQUIRE(res.has_value());
-    REQUIRE(!res->empty());
+    std::expected<std::vector<Token>, TokenizerEC> res;
+    {
+        std::string text = "fn int main() {\nreturn 0;\n}";
+        Tokenizer tokenizer{text};
+        res = tokenizer.tokenize();
+        REQUIRE(res.has_value());
+        REQUIRE(!res->empty());
+    }
     std::vector<Token> want = {
         {.type=TokenType::KEYWORD_FN, .value="fn", .source={}},
         {.type=TokenType::KEYWORD_INT, .value="int", .source={}},
