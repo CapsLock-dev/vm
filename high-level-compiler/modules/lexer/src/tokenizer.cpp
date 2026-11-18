@@ -30,7 +30,7 @@ std::expected<std::vector<Token>, TokenizerEC> Tokenizer::tokenize() noexcept {
             LOG_INFO("[Tokenizer] Parsed token at {}:{} - {}", m_line, m_col, token);
             
             if (m_keywords.contains(token)) {
-                tokens.emplace_back(Token{.type=m_keywords.at(token), .value="", .source=get_source()});
+                tokens.emplace_back(Token{.type=m_keywords.at(token), .value=token, .source=get_source()});
             } else {
                 tokens.emplace_back(Token{.type=TokenType::IDENTIFIER, .value=token, .source=get_source()});
             }
@@ -96,7 +96,7 @@ std::optional<Token> Tokenizer::parse_token_char() noexcept {
         next(1);
     }
     if (!m_token_chars.contains(view)) return std::nullopt;
-    return Token{.type = m_token_chars.at(view), .value="", .source=get_source()};
+    return Token{.type = m_token_chars.at(view), .value=view, .source=get_source()};
 }
 
 SourceLocation Tokenizer::get_source() const noexcept {

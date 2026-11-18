@@ -42,7 +42,7 @@ enum class TokenType {
 
 struct Token {
     TokenType type;
-    std::string_view value; // contains value if type is INT_LITERAL or IDENTIFIER
+    std::string_view value;
     SourceLocation source; // only used for error messages
 };
 
