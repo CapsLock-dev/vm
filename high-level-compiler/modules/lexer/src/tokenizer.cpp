@@ -60,17 +60,6 @@ std::expected<std::vector<Token>, TokenizerEC> Tokenizer::tokenize() noexcept {
     return tokens;
 }
 
-std::optional<TokenType> Tokenizer::str_to_token(std::string_view token) const noexcept {
-    static const std::unordered_map<std::string, TokenType> mappings = {
-        {"int", TokenType::KEYWORD_INT},
-        {"return", TokenType::KEYWORD_RETURN},
-        {"void", TokenType::KEYWORD_VOID},
-    };
-    auto it = mappings.find(std::string(token));
-    if (it == mappings.end()) return std::nullopt;
-    return it->second;
-}
-
 std::optional<char> Tokenizer::peek(unsigned int offset) const noexcept {
     if (m_curr+offset >= m_text.length()) return std::nullopt;
     return m_text[m_curr+offset];

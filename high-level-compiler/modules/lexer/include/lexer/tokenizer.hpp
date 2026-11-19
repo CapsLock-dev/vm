@@ -18,7 +18,6 @@ public:
     Tokenizer(std::string text);
     std::expected<std::vector<Token>, TokenizerEC> tokenize() noexcept;
 private:
-    std::optional<TokenType> str_to_token(std::string_view token) const noexcept;
     std::optional<char> next(unsigned int shift=1) noexcept;
     std::optional<char> peek(unsigned int offset=0) const noexcept;
     std::optional<Token> parse_token_char() noexcept;

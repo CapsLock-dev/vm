@@ -11,7 +11,6 @@ int main(int argc, char** argv) {
         .colored_output = true,
     };
     core::logger::Logger::get_instance().init(cfg);
-
     std::string contents{};
     {
         std::fstream input(argv[1]);
