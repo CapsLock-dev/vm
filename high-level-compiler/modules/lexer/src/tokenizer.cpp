@@ -25,7 +25,7 @@ std::expected<std::vector<Token>, TokenizerEC> Tokenizer::tokenize() noexcept {
 
         if (std::isalpha(curr)) {
             uint64_t start = m_curr;
-            while (peek().has_value() && std::isalpha(peek().value())) next();
+            while (peek().has_value() && valid_id_symbol(*peek())) next();
             token = text_view.substr(start, m_curr-start);
             LOG_INFO("[Tokenizer] Parsed token at {}:{} - {}", m_line, m_col, token);
             
@@ -105,6 +105,10 @@ SourceLocation Tokenizer::get_source() const noexcept {
 
 bool Tokenizer::is_space(char c) const noexcept {
     return c == ' ' || c == '\t' || c == '\n' || c == '\r';
+}
+
+bool Tokenizer::valid_id_symbol(char c) const noexcept {
+    return std::isdigit(c) || std::isalpha(c) || c == '_';
 }
 
 } // namespace lexer

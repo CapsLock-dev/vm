@@ -24,6 +24,7 @@ private:
     std::optional<Token> parse_token_char() noexcept;
 
     bool is_space(char c) const noexcept;
+    bool valid_id_symbol(char c) const noexcept;
 
     SourceLocation get_source() const noexcept;
 
