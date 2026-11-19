@@ -15,7 +15,7 @@ enum class TokenizerEC {
 
 class Tokenizer {
 public:
-    Tokenizer(std::string text);
+    explicit Tokenizer(std::string text);
     std::expected<std::vector<Token>, TokenizerEC> tokenize() noexcept;
 private:
     std::optional<char> next(unsigned int shift=1) noexcept;
