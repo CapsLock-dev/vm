@@ -37,7 +37,8 @@ enum class TokenType {
 
     LPAREN, RPAREN, // ( )
     LBRACE, RBRACE, // { }
-    SEMICOLON // ;
+    SEMICOLON, // ;
+    COMMA // ,
 };
 
 struct Token {

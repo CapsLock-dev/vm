@@ -6,7 +6,7 @@ TEST_CASE("Tokenizer basic example", "[lexer]") {
     using namespace lexer;
     std::expected<std::vector<Token>, TokenizerEC> res;
     {
-        std::string text = "fn int main() {\nreturn 0;\n}";
+        std::string text = "fn int main(int arg_1, int arg_2, int arg_3) {\nreturn 0;\n}";
         Tokenizer tokenizer{text};
         res = tokenizer.tokenize();
         REQUIRE(res.has_value());
@@ -17,6 +17,14 @@ TEST_CASE("Tokenizer basic example", "[lexer]") {
         {.type=TokenType::KEYWORD_INT, .value="int", .source={}},
         {.type=TokenType::IDENTIFIER, .value="main", .source={}},
         {.type=TokenType::LPAREN, .value="(", .source={}},
+        {.type=TokenType::KEYWORD_INT, .value="int", .source={}},
+        {.type=TokenType::IDENTIFIER, .value="arg_1", .source={}},
+        {.type=TokenType::COMMA, .value=",", .source={}},
+        {.type=TokenType::KEYWORD_INT, .value="int", .source={}},
+        {.type=TokenType::IDENTIFIER, .value="arg_2", .source={}},
+        {.type=TokenType::COMMA, .value=",", .source={}},
+        {.type=TokenType::KEYWORD_INT, .value="int", .source={}},
+        {.type=TokenType::IDENTIFIER, .value="arg_3", .source={}},
         {.type=TokenType::RPAREN, .value=")", .source={}},
         {.type=TokenType::LBRACE, .value="{", .source={}},
         {.type=TokenType::KEYWORD_RETURN, .value="return", .source={}},

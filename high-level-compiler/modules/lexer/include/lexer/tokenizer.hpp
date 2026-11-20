@@ -50,6 +50,7 @@ private:
         {")", TokenType::RPAREN},
         {"{", TokenType::LBRACE},
         {"}", TokenType::RBRACE},
+        {",", TokenType::COMMA}
     };
 
     inline static const std::unordered_map<std::string_view, TokenType> m_keywords = {
